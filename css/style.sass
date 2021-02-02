@@ -182,6 +182,8 @@ header
   background: $bg_black
   //padding: 20px 0
   height: 80px
+  @media (max-width: 767px)
+    height: auto
 
 
 .header_row
@@ -191,16 +193,34 @@ header
     width: 180px
     @media (max-width: 1200px)
       width: 160px
+    @media (max-width: 767px)
+      width: 100px
+    @media (max-width: 575px)
+      width: 80px
   .col_right
     width: calc(100% - 180px)
     @media (max-width: 1200px)
       width: calc(100% - 160px)
+
     @media (max-width: 1024px)
       +flex
       +j-end
       padding-top: 22px
+    @media (max-width: 767px)
+      width: calc(100% - 100px)
+      +ai-center
+      padding-top: 0
+    @media (max-width: 575px)
+      width: calc(100% - 80px)
+
+.logo
+  +flex
+  a
+    +flex
 
 .mm_btn
+  width: 40px
+  height: 30px
   .hamburger
     width: 40px
     height: 30px
@@ -402,6 +422,153 @@ header
         left: 100%
         top: 0
         min-width: 300px
+
+.main_slider
+  width: 100%
+  .slick_arrow
+    position: absolute
+    top: 50%
+    width: 50px
+    height: 50px
+    background: rgba(255, 255, 255, 0.2)
+    +border-radius(50%)
+    border: 0
+    +transition($transition_default)
+    @media (max-width: 767px)
+      display: none
+    &:hover
+      background: $yellow
+    &:before
+      +b_a
+      +m_a
+      width: 12px
+      height: 20px
+  .ms_prev
+    left: 0
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='20' viewBox='0 0 12 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 2L2 10L10 18' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+  .ms_next
+    right: 0
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='20' viewBox='0 0 12 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2 18L10 10L2 2' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+  .slick-dots
+    bottom: 35px
+    li
+      width: auto
+      height: auto
+      margin: 0 11px
+      &.slick-active
+        button
+          background: $yellow
+      button
+        background: #C4C4C4
+        width: 10px
+        height: 10px
+        +border-radius(50%)
+        &:before
+          display: none
+
+.main_slider_item
+  background-size: cover
+  background-position: center
+  height: 850px
+  position: relative
+  @media (max-width: 1200px)
+    height: 700px
+  @media (max-width: 991px)
+    height: 650px
+  @media (max-width: 767px)
+    height: 500px
+  @media (max-width: 575px)
+    height: 400px
+  &:before
+    +b_a
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: linear-gradient(87.45deg, rgba(44, 44, 44, 0.6715) 1.36%, rgba(44, 44, 44, 0.7395) 17.54%, rgba(44, 44, 44, 0.425) 95.5%)
+  .container
+    position: relative
+    color: #fff
+    text-align: center
+    +flex
+    +ai-center
+    +j-center
+    height: 100%
+
+    .btn_default
+      margin: auto
+    .title
+      text-transform: uppercase
+      font-size: 46px
+      line-height: 63px
+      font-weight: 700
+      margin-bottom: 40px
+      @media (max-width: 1200px)
+        font-size: 40px
+        line-height: 1.2
+        margin-bottom: 30px
+      @media (max-width: 991px)
+        font-size: 35px
+      @media (max-width: 767px)
+        font-size: 30px
+        margin-bottom: 20px
+      @media (max-width: 575px)
+        font-size: 25px
+
+    .sub_title
+      display: inline-block
+      position: relative
+      text-transform: uppercase
+      font-size: 20px
+      line-height: 27px
+      font-weight: 700
+      padding-left: 30px
+      margin-bottom: 40px
+      @media (max-width: 1200px)
+        font-size: 18px
+        line-height: 1.2
+        margin-bottom: 30px
+      @media (max-width: 767px)
+        font-size: 16px
+        margin-bottom: 20px
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        width: 21px
+        height: 22px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M18.2615 0.6875L21 0.6875L15.4966 21.3125L12.7581 21.3125L18.2615 0.6875Z' fill='%23FEDD00'/%3e%3cpath d='M11.8825 0.6875L14.621 0.6875L9.1176 21.3125L6.3791 21.3125L11.8825 0.6875Z' fill='%23FEDD00'/%3e%3cpath d='M5.50344 0.6875L8.24197 0.6875L2.73857 21.3125L6.82633e-05 21.3125L5.50344 0.6875Z' fill='%23FEDD00'/%3e%3c/svg%3e ")
+
+
+.btn_default
+  +flex
+  +ai-center
+  +j-center
+  color: $black
+  text-transform: uppercase
+  font-size: 14px
+  font-weight: 700
+  background: $yellow
+  background: linear-gradient(180deg, #FEDD00 0%, #FFC907 62.5%, #FCE208 100%)
+  box-shadow: 2px 4px 17px rgba(225, 176, 0, 0.3), inset 0px -3px 0px #E1B000
+  +border-radius(2px)
+  width: 100%
+  max-width: 205px
+  height: 55px
+  text-decoration: none
+  @media (max-width: 1200px)
+    height: 50px
+  @media (max-width: 991px)
+    height: 45px
+  @media (max-width: 767px)
+    height: 40px
+  &:hover
+    text-decoration: none
+
+
 
 
 

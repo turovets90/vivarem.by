@@ -43,6 +43,26 @@ $(document).ready(function(){
         $(this).toggleClass('act');
     });
 
+    $(".main_slider").slick({
+        infinite: true,
+        arrows: false,
+        dots: true,
+        fade: true,
+        //autoplay: true,
+        //speed: 3000,
+        //autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+
+    $('.ms_prev').click(function(){
+        $('.main_slider').slick('slickPrev');
+    })
+
+    $('.ms_next').click(function(){
+        $('.main_slider').slick('slickNext');
+    })
+
 /*
 
 
