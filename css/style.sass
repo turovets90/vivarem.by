@@ -1,0 +1,407 @@
+//@import "bootstrap"
+@import "slick-less"
+@import "fancybox"
+
+
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+
+
+$transition_default: .3s linear
+
+$yellow: #FFC907
+$black: #2C2C2C
+$bg_black: #343331
+$green: #1FA31C
+$open_sans: 'Open Sans', sans-serif
+
+a, button
+  +transition($transition_default)
+
+a
+
+  text-decoration: none
+  &:hover, &:focus
+
+    text-decoration: underline
+
+
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+img, video
+  max-width: 100%
+*
+  outline: none
+
+*, *::before, *::after
+  box-sizing: border-box
+
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+p
+  margin-top: 0
+  margin-bottom: 1rem
+
+body
+  margin: 0
+  color: #343331
+  font-size: 14px
+  line-height: 23px
+  font-family: $open_sans
+
+
+.container
+  max-width: 1200px
+  margin-left: auto
+  margin-right: auto
+  padding: 0 12px
+
+.row
+  display: -ms-flexbox
+  display: flex
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+  margin-right: -12px
+  margin-left: -12px
+
+
+.col
+  padding-left: 12px
+  padding-right: 12px
+
+
+header
+  background: $bg_black
+  //padding: 20px 0
+  height: 80px
+
+
+.header_row
+  +flex
+  //+ai-center
+  .col_left
+    width: 180px
+    @media (max-width: 1200px)
+      width: 160px
+  .col_right
+    width: calc(100% - 180px)
+    @media (max-width: 1200px)
+      width: calc(100% - 160px)
+    @media (max-width: 1024px)
+      +flex
+      +j-end
+      padding-top: 22px
+
+.mm_btn
+  .hamburger
+    width: 40px
+    height: 30px
+    background: none
+    border: 0
+    position: relative
+    span
+      position: absolute
+      width: 100%
+      height: 3px
+      background: $yellow
+      left: 0
+      +border-radius(3px)
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        top: 0
+        bottom: 0
+        margin: auto
+      &:nth-child(3)
+        bottom: 0
+
+  @media (min-width: 1025px)
+    display: none
+
+.main_menu
+  @media (max-width: 1024px)
+    position: fixed
+    top: 0
+    right: 0
+    width: 80%
+    height: 100%
+    background: $black
+    padding-top: 50px
+    overflow: auto
+    opacity: 0
+    +transition($transition_default)
+    +transform(translateX(100%))
+    &.open
+      +transform(translateX(0))
+      opacity: 1
+
+
+
+  .mm_close
+    width: 30px
+    height: 30px
+    position: absolute
+    left: 0
+    top: 0
+    background: #fff
+    &:before, &:after
+      +b_a
+      width: 25px
+      height: 1px
+      background: $black
+      +m_a
+    &:before
+      +transform(rotate(-45deg))
+    &:after
+      +transform(rotate(45deg))
+    @media (min-width: 1025px)
+      display: none
+  .nav
+    +flex
+    +ai-center
+    +wrap
+
+    li
+      position: relative
+      &:hover
+        > .sub_menu
+          @media (min-width: 1025px)
+            display: block
+    > li
+      padding: 29px 20px
+      @media (max-width: 1200px)
+        padding: 29px 10px
+      @media (min-width: 1025px)
+        flex-grow: 1
+        > .arrow
+          display: none
+      @media (max-width: 1024px)
+        width: 100%
+        padding: 8px 5px
+        margin-bottom: 5px
+
+
+      &.has_child
+        @media (min-width: 1025px)
+          > a
+            padding-right: 15px
+            &:after
+              +b_a
+              top: 0
+              bottom: 0
+              right: 0
+              margin: auto
+              width: 8px
+              height: 5px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L4 4L7 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+      > a
+        text-transform: uppercase
+        color: #fff
+        font-size: 15px
+        font-weight: 700
+        display: inline-block
+        //padding: 29px 15px
+        position: relative
+        @media (max-width: 1200px)
+          font-size: 14px
+        &:hover
+          text-decoration: none
+          color: $yellow
+      .arrow
+        @media (max-width: 1024px)
+          width: 30px
+          height: 25px
+          position: absolute
+          right: 10px
+          &.act
+            &:before
+              +transform(rotate(180deg))
+
+          &:before
+            +b_a
+            +m_a
+            width: 10px
+            height: 6px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+
+
+
+    .sub_menu
+      display: none
+      @media (min-width: 1025px)
+        position: absolute
+        top: 100%
+        left: 0
+        min-width: 340px
+        background: #fff
+        +box-shadow( 3px 4px 35px rgba(0, 0, 0, 0.25))
+        +border-radius(2px)
+      @media (min-width: 1201px)
+        min-width: 460px
+      li
+        padding: 7px 35px 7px 25px
+        position: relative
+        @media (max-width: 1024px)
+          padding: 4px 5px 4px 10px
+        .arrow
+          position: absolute
+          right: 22px
+          top: 15px
+          width: 10px
+          height: 6px
+          @media (max-width: 1024px)
+            width: 30px
+            height: 25px
+            top: 5px
+            right: 10px
+          &:before
+            +b_a
+            +m_a
+            width: 10px
+            height: 6px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%232C2C2C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+            @media (max-width: 1024px)
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+        &:hover
+          @media (min-width: 1025px)
+            background: $yellow
+
+        a
+          color: $black
+          font-size: 14px
+          position: relative
+          display: inline-block
+          padding-left: 17px
+          line-height: 19px
+          @media (max-width: 1024px)
+            color: #fff
+          &:hover
+            text-decoration: none
+          &:before
+            +b_a
+            width: 5px
+            height: 1px
+            background: $black
+            left: 0
+            top: 10px
+            @media (max-width: 1024px)
+              background: #fff
+      .sub_menu
+        left: 100%
+        top: 0
+        min-width: 300px
+
+
+
