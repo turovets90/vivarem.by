@@ -63,6 +63,26 @@ $(document).ready(function(){
         $('.main_slider').slick('slickNext');
     })
 
+
+    $(function () {
+        $('input, textarea').each(function () {
+            $(this).blur(function(){
+                if(!this.value){
+                    $(this).removeClass('hide_label');
+                }
+                else{
+                    $(this).addClass('hide_label');
+                }
+            });
+            if ( !this.value ) {
+                $(this).removeClass('hide_label');
+            }
+            else{
+                $(this).addClass('hide_label');
+            }
+        });
+    });
+
 /*
 
 
