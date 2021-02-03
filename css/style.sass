@@ -191,6 +191,9 @@ header
 .header_row
   +flex
   //+ai-center
+  height: 80px
+  @media (max-width: 767px)
+    height: auto
   .col_left
     width: 180px
     @media (max-width: 1200px)
@@ -201,6 +204,7 @@ header
       width: 80px
   .col_right
     width: calc(100% - 180px)
+    height: 80px
     @media (max-width: 1200px)
       width: calc(100% - 160px)
 
@@ -212,6 +216,7 @@ header
       width: calc(100% - 100px)
       +ai-center
       padding-top: 0
+      height: auto
     @media (max-width: 575px)
       width: calc(100% - 80px)
 
@@ -1029,8 +1034,9 @@ footer
       padding-top: 20px
   .header_row
     .col_left
-      height: 80px
-      overflow: hidden
+      @media (min-width: 768px)
+        height: 80px
+        overflow: hidden
 
     //overflow: hidden
 .page_content
@@ -1100,9 +1106,9 @@ footer
   &:after
     +transform(rotate(90deg))
 
-
-.page_seotext
+.bg_grey
   background: $bg_grey
+.page_seotext
   padding: 70px 0
   @media (max-width: 1200px)
     padding: 50px 0
@@ -1119,3 +1125,102 @@ footer
       width: 50%
     @media (max-width: 767px)
       width: 100%
+
+
+.breadcrumb
+  background: #F2F2F2
+  padding: 10px 0 10px 200px
+  margin-bottom: 30px
+  +flex
+  +ai-center
+  +wrap
+  @media (max-width: 1200px)
+    padding-left: 170px
+    margin-bottom: 10px
+  @media (max-width: 767px)
+    padding-left: 0
+    margin-bottom: 0
+
+  li
+    position: relative
+    padding: 0 15px
+    &:first-child
+      padding-left: 18px
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 12px
+        height: 9px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4.8 9V5.82353H7.2V9H10.2V4.76471H12L6 0L0 4.76471H1.8V9H4.8Z' fill='%23343331'/%3e%3c/svg%3e ")
+
+    + li
+      &:before
+        +b_a
+        left: -2px
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 5px
+        height: 9px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L4 4.5L1 8' stroke='%23343331' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+    &:last-child
+      a
+        color: #939291
+
+    a
+      color: $black
+      font-size: 13px
+      display: inline-block
+
+.page_content
+  &.bg_grey
+    padding-bottom: 50px
+    @media (max-width: 1200px)
+      padding-bottom: 30px
+.bg_grey
+  .page_pagination
+    .custom_pagination
+      li
+        a
+          &.page_prev, &.page_next
+            background: #fff
+            &:hover
+              background: $yellow
+
+
+.filters_box
+  +flex
+  +ai-center
+  +wrap
+  margin-bottom: 20px
+  .filter_item
+    margin-right: 37px
+.custom_select
+  display: inline-block
+  position: relative
+  &:before
+    +b_a
+    right: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 9px
+    height: 5px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 4L4.5 1L8 4' stroke='%23343331' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+  select
+    border: 0
+    appearance: none
+    -webkit-appearance: none
+    background: none
+    color: #939291
+    font-size: 14px
+    padding-right: 17px
+    *
+      color: #939291
+      font-size: 14px
+
+
