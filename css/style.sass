@@ -106,7 +106,7 @@ $black: #2C2C2C
 $bg_black: #343331
 $green: #1FA31C
 $open_sans: 'Open Sans', sans-serif
-
+$bg_grey: #F1F1F1
 a, button
   +transition($transition_default)
 
@@ -577,7 +577,7 @@ header
   text-align: center
 
 
-.section_title
+.section_title, .page_title
   position: relative
   display: inline-block
   padding-left: 50px
@@ -1019,3 +1019,103 @@ footer
             .sub_menu
               top: initial
               bottom: 0
+
+.catalog_body
+  .page_content
+    padding-top: 70px
+    @media (max-width: 1200px)
+      padding-top: 30px
+    @media (max-width: 767px)
+      padding-top: 20px
+  .header_row
+    .col_left
+      height: 80px
+      overflow: hidden
+
+    //overflow: hidden
+.page_content
+
+
+
+.category_list
+  margin-bottom: 40px
+  .col
+    width: 33.33%
+    margin-bottom: 20px
+    @media (max-width: 991px)
+      width: 50%
+    @media (max-width: 575px)
+      width: 100%
+
+    .category_item
+      width: 100%
+      height: 225px
+      background-size: cover
+      background-position: center
+      position: relative
+      display: inline-block
+      +transition($transition_default)
+      &:hover
+        +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.17))
+        .read_more
+          color: $yellow
+          &:before, &:after
+            background: $yellow
+      .category_name
+        color: $black
+        text-transform: uppercase
+        font-size: 16px
+        line-height: 26px
+        font-weight: 700
+        position: absolute
+        left: 20px
+        bottom: 47%
+        max-width: 50%
+
+      .read_more
+        position: absolute
+        left: 20px
+        bottom: 29%
+
+.read_more
+  display: inline-block
+  position: relative
+  padding-left: 30px
+  text-decoration: none
+  color: $black
+  font-size: 14px
+  text-transform: uppercase
+  font-weight: 600
+  +transition($transition_default)
+  &:before, &:after
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 15px
+    height: 2px
+    background: $black
+    +transition($transition_default)
+  &:after
+    +transform(rotate(90deg))
+
+
+.page_seotext
+  background: $bg_grey
+  padding: 70px 0
+  @media (max-width: 1200px)
+    padding: 50px 0
+  @media (max-width: 767px)
+    padding: 30px 0
+  .section_title
+    margin-top: 0
+    margin-bottom: 25px
+
+.column3
+  .col
+    width: 33.33%
+    @media (max-width: 991px)
+      width: 50%
+    @media (max-width: 767px)
+      width: 100%
