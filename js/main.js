@@ -83,6 +83,36 @@ $(document).ready(function(){
         });
     });
 
+
+    $('.product_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.product_slider_nav'
+    });
+    $('.product_slider_nav').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.product_slider',
+        dots: false,
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+
 /*
 
 

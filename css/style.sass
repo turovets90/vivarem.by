@@ -156,6 +156,7 @@ body
   font-size: 14px
   line-height: 23px
   font-family: $open_sans
+  overflow-x: hidden
 
 
 .container
@@ -1141,7 +1142,7 @@ footer
     padding-left: 170px
     margin-bottom: 10px
   @media (max-width: 767px)
-    padding-left: 0
+    padding-left: 10px
     margin-bottom: 0
 
   li
@@ -1400,7 +1401,7 @@ footer
       font-weight: 600
       margin-bottom: 25px
 
-#checkout, #order_service
+#checkout, #order_service, #order_product
   display: none
 .red
   color: red
@@ -1418,3 +1419,131 @@ footer
 .fancybox-slide--html
   .fancybox-close-small
     padding: 2px
+
+
+.availability
+  display: inline-block
+  padding-left: 13px
+  position: relative
+  color: $green
+  font-size: 12px
+  margin-bottom: 10px
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 9px
+    height: 8px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 4L3.5 6.5L8 1' stroke='%231FA31C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+
+.product_desc
+  border: 1px solid #EEEEEE
+  padding: 40px 70px
+  position: relative
+  margin-bottom: 70px
+  @media (max-width: 1200px)
+    padding: 30px 50px
+    margin-bottom: 50px
+  @media (max-width: 767px)
+    margin-bottom: 30px
+    padding-right: 15px
+  &:before
+    +b_a
+    left: 25px
+    top: 40px
+    width: 25px
+    height: 25px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M25 25C24.6313 24.8666 24.3065 24.7506 23.9816 24.6346C21.6581 23.7993 19.3288 22.964 17.0024 22.1287C16.7683 22.0446 16.5342 21.8938 16.303 21.8967C16.0718 21.8996 15.8406 22.0562 15.6095 22.1432C14.0146 22.7494 12.3612 22.993 10.6581 22.8538C8.03908 22.6421 5.73899 21.6676 3.793 19.9129C1.80895 18.1234 0.576975 15.9076 0.155586 13.28C-0.306772 10.3942 0.260933 7.70274 1.86455 5.2433C3.22529 3.158 5.07765 1.63245 7.4304 0.782671C11.2639 -0.603662 14.9071 -0.154119 18.2461 2.1777C20.7832 3.94977 22.3341 6.40341 22.8843 9.4313C23.4286 12.4331 22.817 15.2232 21.1343 17.7754C20.9939 17.99 20.8417 18.1959 20.6808 18.399C20.6076 18.4918 20.5988 18.5556 20.672 18.66C21.6669 20.1043 22.656 21.5545 23.6451 23.0017C24.0753 23.6311 24.5025 24.2575 24.9327 24.8869C24.9503 24.9101 24.9649 24.9362 25 25ZM18.4889 18.4135C18.5328 18.3642 18.5709 18.3178 18.606 18.2743C18.846 17.9958 19.1005 17.7261 19.3229 17.4332C21.0787 15.1362 21.7342 12.5578 21.2397 9.71843C20.8973 7.75494 19.9931 6.06118 18.5914 4.63134C15.8728 1.85577 11.7145 0.936386 8.07127 2.30532C3.74325 3.92947 1.1359 8.25379 1.77384 12.7985C2.12207 15.2899 3.28382 17.3578 5.23274 18.9587C7.47723 20.8033 10.0699 21.511 12.9582 21.1281C14.0497 20.9831 15.0798 20.6293 16.0601 20.1391C16.1245 20.1072 16.224 20.0927 16.2884 20.1159C17.4677 20.5336 18.644 20.9599 19.8204 21.3805C20.1072 21.4849 20.394 21.5864 20.6837 21.6879C20.6895 21.6792 20.6954 21.6734 20.7042 21.6647C19.9697 20.58 19.2293 19.5011 18.4889 18.4135Z' fill='%23FEDD00'/%3e%3cpath d='M9.89453 14.9997C10.2428 14.9997 10.5793 14.9997 10.9246 14.9997C10.9246 13.7816 10.9246 12.578 10.9246 11.3541C10.5851 11.3541 10.2457 11.3541 9.89453 11.3541C9.89453 10.6493 9.89453 9.96484 9.89453 9.26587C10.9363 9.26587 11.9781 9.26587 13.0345 9.26587C13.0345 11.1714 13.0345 13.071 13.0345 14.9939C13.3915 14.9939 13.7339 14.9939 14.085 14.9939C14.085 15.6987 14.085 16.3832 14.085 17.0763C12.6892 17.0763 11.2992 17.0763 9.89453 17.0763C9.89453 16.3948 9.89453 15.7074 9.89453 14.9997Z' fill='%23FEDD00'/%3e%3cpath d='M11.855 8.18616C11.1527 8.18616 10.5938 7.62661 10.5967 6.9279C10.5996 6.24369 11.1644 5.68994 11.8609 5.68994C12.5573 5.68994 13.1221 6.24949 13.1192 6.9337C13.1133 7.63531 12.5573 8.18905 11.855 8.18616Z' fill='%23FEDD00'/%3e%3c/svg%3e ")
+    @media (max-width: 1200px)
+      top: 30px
+      left: 10px
+.product_row
+  padding-top: 15px
+  margin-bottom: 40px
+  .col
+    width: 50%
+    @media (max-width: 767px)
+      width: 100%
+
+  h1
+    font-weight: 600
+    font-size: 34px
+    line-height: 46px
+    @media (max-width: 1200px)
+      font-size: 30px
+      line-height: 1.2
+    @media (max-width: 991px)
+      font-size: 26px
+    @media (max-width: 767px)
+      font-size: 24px
+  .articul
+    color: #939291
+    font-size: 14px
+    border-top: 1px solid #E7E7E7
+    border-bottom: 1px solid #E7E7E7
+    padding: 15px 0
+    margin-bottom: 20px
+  .availability
+    font-size: 14px
+    margin-bottom: 20px
+  .price
+    font-size: 22px
+    font-weight: 600
+    margin-bottom: 25px
+
+.product_slider
+  margin-bottom: 20px
+  .product_slider_item
+    +flex
+    +ai-center
+    +j-center
+
+  .slick-arrow
+    width: 35px
+    height: 35px
+    background: #fff
+    border: 2px solid #EEEEEE
+    +border-radius(50%)
+    z-index: 3
+    &:hover
+      background: $yellow
+    &:before
+      +b_a
+      +m_a
+      width: 7px
+      height: 14px
+
+  .slick-prev
+    left: 0
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='14' viewBox='0 0 7 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6 13L1 7L6 1' stroke='%23343331' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+  .slick-next
+    right: 0
+    &:before
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='14' viewBox='0 0 7 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L6 7L1 13' stroke='%23343331' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+.product_slider_nav
+  margin: 0 -5px
+  .item
+    padding: 0 5px
+  .slick-current
+    .product_slider_item_nav
+      border: 2px solid #FFC907
+  .product_slider_item_nav
+    width: 100%
+    height: 120px
+    border: 1px solid #EEEEEE
+    position: relative
+    @media (max-width: 575px)
+      height: 80px
+
+    img
+      position: absolute
+      +m_a
+      max-width: 95%
+      max-height: 95%
