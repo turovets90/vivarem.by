@@ -264,6 +264,7 @@ header
       height: 100%
       background: $black
       padding-top: 50px
+      padding-left: 10px
       overflow: auto
       opacity: 0
       z-index: 9999
@@ -562,7 +563,7 @@ header
   font-size: 14px
   font-weight: 700
   background: $yellow
-  border: 2px solid  $yellow
+  border: 0
   background: linear-gradient(180deg, #FEDD00 0%, #FFC907 62.5%, #FCE208 100%)
   box-shadow: 2px 4px 17px rgba(225, 176, 0, 0.3), inset 0px -3px 0px #E1B000
   +border-radius(2px)
@@ -578,6 +579,8 @@ header
     height: 40px
   &:hover
     text-decoration: none
+    background: linear-gradient(180deg, #FEDD00 0%, #ffc907 30.5%, #FCE208 100%)
+
 
 
 .text-center
@@ -745,7 +748,7 @@ section
         height: 405px
         +transition($transition_default)
       &:hover
-        z-index: 2
+        z-index: 10
         .product_item_content
           height: auto
           +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.17))
@@ -839,6 +842,8 @@ section
   +ai-center
   +j-center
   padding: 15px 25px
+  position: relative
+  z-index: 2
   //margin-bottom: 45px
   @media (max-width: 575px)
     +wrap
@@ -1013,10 +1018,12 @@ footer
       width: 100%
       display: inline-block
       column-count: 4
+      position: relative
       @media (max-width: 1024px)
         column-count: 1
       > li
         padding: 13px 0
+        position: initial
       li
 
         .sub_menu
@@ -1547,3 +1554,21 @@ footer
       +m_a
       max-width: 95%
       max-height: 95%
+
+
+.page_content
+  min-height: 400px
+.page-noscroll
+  overflow: hidden
+  &:after
+    +b_a
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.4)
+    z-index: 999
+  .contacts_form_content
+    z-index: 1
+  header
+    z-index: initial
