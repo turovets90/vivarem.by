@@ -182,37 +182,92 @@ body
 header
   background: $bg_black
   //padding: 20px 0
-  height: 80px
-  position: relative
+  height: 90px
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  width: 100%
   z-index: 10
   @media (max-width: 767px)
     height: auto
+
+  .contacts_box
+    padding: 5px 0
+    @media (min-width: 1025px)
+      +flex
+      +ai-center
+      +j-end
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+    @media (max-width: 1024px)
+      margin-right: 20px
+
+    ul
+      +flex
+      +ai-center
+      +j-end
+      +wrap
+      li
+        @media (max-width: 1024px)
+          width: 100%
+          text-align: right
+        a
+          color: #fff
+          position: relative
+          display: inline-block
+          font-size: 14px
+          font-weight: 600
+
+          margin-left: 60px
+          @media (max-width: 1024px)
+            margin-left: 0
+          @media (max-width: 575px)
+            font-size: 12px
+          &:hover
+            color: $yellow
+            text-decoration: none
+          &.phone
+            padding-left: 20px
+            &:hover
+              &:before
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.3333 8.33333C10.5 8.33333 9.7 8.2 8.95333 7.95333C8.72 7.88 8.46 7.93333 8.27333 8.11333L6.80667 9.58C4.92 8.62 3.37333 7.08 2.41333 5.18667L3.88 3.71333C4.06667 3.54 4.12 3.28 4.04667 3.04667C3.8 2.3 3.66667 1.5 3.66667 0.666667C3.66667 0.3 3.36667 0 3 0H0.666667C0.3 0 0 0.3 0 0.666667C0 6.92667 5.07333 12 11.3333 12C11.7 12 12 11.7 12 11.3333V9C12 8.63333 11.7 8.33333 11.3333 8.33333Z' fill='%23ffc907'/%3e%3c/svg%3e ")
+            &:before
+              +b_a
+              left: 0
+              top: 0
+              bottom: 0
+              margin: auto
+              width: 12px
+              height: 12px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.3333 8.33333C10.5 8.33333 9.7 8.2 8.95333 7.95333C8.72 7.88 8.46 7.93333 8.27333 8.11333L6.80667 9.58C4.92 8.62 3.37333 7.08 2.41333 5.18667L3.88 3.71333C4.06667 3.54 4.12 3.28 4.04667 3.04667C3.8 2.3 3.66667 1.5 3.66667 0.666667C3.66667 0.3 3.36667 0 3 0H0.666667C0.3 0 0 0.3 0 0.666667C0 6.92667 5.07333 12 11.3333 12C11.7 12 12 11.7 12 11.3333V9C12 8.63333 11.7 8.33333 11.3333 8.33333Z' fill='white'/%3e%3c/svg%3e ")
+
+
+
 
 
 .header_row
   +flex
   //+ai-center
-  height: 80px
+  height: 90px
   @media (max-width: 767px)
     height: auto
   .col_left
-    width: 180px
-    @media (max-width: 1200px)
-      width: 160px
-    @media (max-width: 767px)
-      width: 100px
+    width: 145px
+
     @media (max-width: 575px)
-      width: 80px
+      //width: 80px
+      width: auto
   .col_right
-    width: calc(100% - 180px)
-    height: 80px
+    width: calc(100% - 145px)
+    height: 90px
     @media (max-width: 1200px)
-      width: calc(100% - 160px)
+      width: calc(100% - 145px)
 
     @media (max-width: 1024px)
       +flex
       +j-end
-      padding-top: 22px
+      +ai-center
+      //padding-top: 22px
     @media (max-width: 767px)
       width: calc(100% - 100px)
       +ai-center
@@ -225,16 +280,25 @@ header
   +flex
   a
     +flex
+    img
+      @media (max-width: 575px)
+        max-width: 70px
 
 .mm_btn
   width: 40px
   height: 30px
+  @media (max-width: 575px)
+    width: 30px
+    height: 23px
   .hamburger
     width: 40px
     height: 30px
     background: none
     border: 0
     position: relative
+    @media (max-width: 575px)
+      width: 30px
+      height: 23px
     span
       position: absolute
       width: 100%
@@ -275,6 +339,10 @@ header
         opacity: 1
 
 .main_menu
+  @media (min-width: 1201px)
+    padding-left: 39px
+  @media (min-width: 1025px)
+    padding-left: 15px
 
   .mm_close
     width: 30px
@@ -307,9 +375,9 @@ header
           @media (min-width: 1025px)
             display: block
     > li
-      padding: 29px 20px
+      padding: 15px 20px
       @media (max-width: 1200px)
-        padding: 29px 10px
+        padding: 15px 10px
       @media (min-width: 1025px)
         flex-grow: 1
         > .arrow
@@ -1140,7 +1208,7 @@ footer
 
 .breadcrumb
   background: #F2F2F2
-  padding: 10px 0 10px 200px
+  padding: 5px 0 5px 200px
   margin-bottom: 30px
   +flex
   +ai-center
@@ -1567,8 +1635,8 @@ footer
     top: 0
     left: 0
     background: rgba(0, 0, 0, 0.4)
-    z-index: 999
+    z-index: 9
   .contacts_form_content
     z-index: 1
   header
-    z-index: initial
+    //z-index: initial
