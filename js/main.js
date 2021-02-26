@@ -116,6 +116,61 @@ $(document).ready(function(){
     });
 
 
+    $('.nav-tabs_product li ').each(function(){
+        var tab_link=$(this).index();
+        var tab_content=$('.tab-content_product .tab-pane').index();
+        console.log(tab_link);
+        $(this).click(function(){
+            console.log(tab_link);
+            $('.nav-tabs_product li ').removeClass('act');
+            $('.tab-content_product .tab-pane').removeClass('active');
+            $(this).addClass('act');
+            $('.tab-content_product .tab-pane').eq(tab_link).addClass('active');
+        });
+    });
+
+
+
+    $('.range_values').each(function(){
+        var range=$(this).find('.range');
+        var rub_left=$(this).find('.rub_left');
+        var rub_right=$(this).find('.rub_right');
+        var tasks_status1=$(this).find('.tasks_status1');
+        var tasks_status2=$(this).find('.tasks_status2');
+        $(range).slider({
+            range: true,
+            min: 0,
+            max: 1000,
+            values: [10, 1000],
+            step: 10,
+            slide: function(event, ui) {
+                $(rub_left).text(ui.values[0] + ' мм.');
+                $(rub_right).text(ui.values[1] + ' мм.');
+                $(tasks_status1).val( ui.values[0] );
+                $(tasks_status2).val( ui.values[1] );
+            }
+        });
+        $(rub_left).text($(range).slider("values", 0) + ' мм.');
+        $(rub_right).text($(range).slider("values", 1) + ' мм.');
+    });
+    $(document).on("change","input[class=tasks_status1]", function() {
+        $(this).closest('.range_values').find('.range').slider('values',0,$(this).val());
+        $(this).closest('.range_values').find('.rub_left').text($('.range').slider("values", 0) + ' мм.');
+    });
+    $(document).on("change","input[class=tasks_status2]", function() {
+        $(this).closest('.range_values').find('.range').slider('values',1,$(this).val());
+        $(this).closest('.range_values').find('.rub_right').text($('.range').slider("values", 1) + ' мм.');
+    });
+
+    $('.filter_title').click(function(){
+        $(this).toggleClass('act');
+    });
+
+    $('.filter_toggler').click(function(){
+        $(this).next().slideToggle();
+    });
+
+
     $(window).resize(function(){
         var header_height = $('header').outerHeight();
         $('header').next().css({'margin-top': header_height+'px'});

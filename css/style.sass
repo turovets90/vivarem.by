@@ -1,6 +1,8 @@
 //@import "bootstrap"
 @import "slick-less"
 @import "fancybox"
+@import "j_ui"
+
 
 
 =b_a()
@@ -188,7 +190,7 @@ header
   left: 0
   right: 0
   width: 100%
-  z-index: 10
+  z-index: 99
   @media (max-width: 767px)
     height: auto
 
@@ -811,7 +813,7 @@ section
 .products_list
   margin-bottom: 15px
   .col
-    width: 25%
+    width: 33.33%
     margin-bottom: 20px
     @media (max-width: 1200px)
       width: 33.33%
@@ -1282,12 +1284,12 @@ footer
               background: $yellow
 
 
-.filters_box
+.sort_box
   +flex
   +ai-center
   +wrap
   margin-bottom: 20px
-  .filter_item
+  .sort_item
     margin-right: 37px
 .custom_select
   display: inline-block
@@ -1526,8 +1528,7 @@ footer
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 4L3.5 6.5L8 1' stroke='%231FA31C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
 
 
-
-.product_desc
+.tab-pane
   border: 1px solid #EEEEEE
   padding: 40px 70px
   position: relative
@@ -1538,6 +1539,7 @@ footer
   @media (max-width: 767px)
     margin-bottom: 30px
     padding-right: 15px
+.product_desc
   &:before
     +b_a
     left: 25px
@@ -1742,3 +1744,283 @@ footer
     width: 16px
     height: 11px
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='11' viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.431641 0.259534C0.619288 0.105624 0.816319 0.0211249 1.04775 0.00905352C1.12594 0.00301784 1.20412 0 1.28231 0C5.7796 0 10.2738 0 14.7711 0C15.0119 0 15.2433 0.0241427 15.4779 0.162963C12.9884 2.47161 10.5083 4.77724 8.01887 7.08891C5.48875 4.81044 2.96801 2.54102 0.431641 0.259534Z' fill='white'/%3e%3cpath d='M0.78833 10.9095C2.41461 9.39759 4.04089 7.88566 5.67968 6.36165C5.89861 6.55479 6.11127 6.74491 6.32081 6.93504C6.77429 7.34244 7.22465 7.74985 7.68126 8.15424C7.87203 8.32324 8.17227 8.32626 8.36305 8.15424C8.89784 7.66837 9.42326 7.17345 9.9518 6.68456C10.0894 6.55781 10.2301 6.43106 10.3834 6.29224C12.0722 7.81323 13.7579 9.3312 15.4436 10.8522C15.2341 10.988 15.0058 11.0001 14.7743 11.0001C11.747 11.0001 8.71958 11.0001 5.69219 11.0001C4.22228 11.0001 2.75238 11.0001 1.28247 10.997C1.11984 10.997 0.957213 10.9699 0.794585 10.9578C0.794585 10.9427 0.791458 10.9276 0.78833 10.9095Z' fill='white'/%3e%3cpath d='M0 1.27051C1.6513 2.75529 3.27133 4.20988 4.90386 5.67354C3.29009 7.1734 1.68257 8.66723 0.0469119 10.1852C0.0281472 10.0554 0.00312746 9.95887 0.00312746 9.85928C0 7.05872 0 4.25817 0 1.45761C0 1.40933 0 1.36104 0 1.27051Z' fill='white'/%3e%3cpath d='M11.1274 5.59496C12.7475 4.08604 14.3675 2.58316 16 1.06519C16 4.04681 16 6.99826 16 9.98894C14.3706 8.51623 12.7537 7.05862 11.1274 5.59496Z' fill='white'/%3e%3c/svg%3e ")
+
+
+
+.w_100
+  width: 100%
+
+
+.nav-tabs_product
+  +flex
+  +wrap
+  border-bottom: 2px solid $yellow
+  li
+
+    border: 1px solid #E7E7E7
+    background: #F7F7F7
+    +border-radius(2px 2px 0 0)
+    border-bottom: 0
+    width: 100%
+    max-width: 180px
+    height: 41px
+    padding: 5px 10px
+    +flex
+    +ai-center
+    +j-center
+    color: #939291
+    font-size: 14px
+    text-transform: uppercase
+    cursor: pointer
+    @media (max-width: 767px)
+      max-width: initial
+      width: auto
+      height: 35px
+      font-size: 12px
+    + li
+      margin-left: 25px
+      @media (max-width: 767px)
+        margin-left: 10px
+      @media (max-width: 575px)
+        margin-left: 5px
+    &.act
+      color: #2C2C2C
+      background: $yellow
+      border: 1px solid $yellow
+
+
+.tab-pane
+  .h3, h3
+    font-size: 16px
+    font-weight: bold
+    margin-bottom: 12px
+  &:nth-child(2)
+    padding: 30px 27px
+  &:not(.active)
+    display: none
+
+
+.custom_table
+  .tr
+    +flex
+    +ai-center
+    +j-beetween
+    position: relative
+    margin-bottom: 10px
+    @media (max-width: 767px)
+      margin-bottom: 5px
+    &:before
+      +b_a
+      left: 0
+      right: 0
+      bottom: 4px
+      border-bottom: 1px dotted #C4C4C4
+    .td
+      color: #343331
+      &:first-child
+        span
+          padding-right: 5px
+      &:last-child
+        span
+          padding-left: 5px
+      span
+        display: inline-block
+        position: relative
+        background: #fff
+
+
+
+.sidebar
+  width: 27.5%
+  @media (max-width: 991px)
+    width: 100%
+    padding-bottom: 20px
+.main_content
+  width: 72.5%
+  @media (max-width: 991px)
+    width: 100%
+
+
+
+.filter_box
+  background: #F2F2F2
+  border: 1px solid #E7E7E7
+  border-radius: 2px
+  .filter_toggler
+    width: 100%
+    height: 45px
+    +flex
+    +ai-center
+    +j-center
+    background: #343331
+    color: #fff
+    font-weight: 600
+    font-size: 14px
+    text-transform: uppercase
+    border-radius: 2px 2px 0 0
+    @media (min-width: 992px)
+      pointer-events: none
+  .filter_form
+    padding: 0 25px
+    @media (max-width: 1200px)
+      padding: 0 15px
+    @media (max-width: 991px)
+      display: none
+  .filter_item
+    border-bottom: 1px solid  #E7E7E7
+    .filter_title
+      color: #2C2C2C
+      font-weight: 600
+      font-size: 14px
+      position: relative
+      padding: 18px 0
+      cursor: pointer
+      &.act
+        &:before
+          +transform(rotate(-180deg))
+        + .filter_body
+          display: block
+      &:before
+        +b_a
+        right: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 11px
+        height: 6px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='6' viewBox='0 0 11 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 1L5.5 5L1 1' stroke='%23939291' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+    .filter_body
+      display: none
+      padding-bottom: 20px
+
+  .btn_group
+    +flex
+    //+wrap
+    +ai-center
+    +j-center
+    border-radius: 2px
+    padding: 20px 0
+    button
+      width: 100%
+      max-width: 110px
+      height: 45px
+      font-weight: 500
+      font-size: 14px
+      text-transform: uppercase
+
+      &.btn_custom
+        background: linear-gradient(180deg, #FEDD00 0%, #FFC907 62.5%, #FCE208 100%)
+        border: 0
+        &:hover
+          background: $yellow
+        &.reset
+          border: 1px solid #939291
+          color: #939291
+          background: none
+          margin-left: 10px
+          &:hover
+            background: linear-gradient(180deg, #FEDD00 0%, #FFC907 62.5%, #FCE208 100%)
+            border: 1px solid $yellow
+
+
+
+
+.range_values
+  .tasks_group
+    +flex
+    +ai-center
+    +j-beetween
+    position: relative
+    margin-bottom: 10px
+    &:before
+      +b_a
+      width: 11px
+      height: 1px
+      background: #939291
+      +m_a
+    span
+      +flex
+      input
+        padding: 10px
+        background: #FFFFFF
+        border: 1px solid #E7E7E7
+        box-sizing: border-box
+        border-radius: 2px
+        height: 35px
+        width: 100%
+        max-width: 100px
+        color: #939291
+        font-size: 14px
+
+.range_row
+  +flex
+  +j-beetween
+  font-size: 14px
+  color: #939291
+  margin-bottom: 10px
+
+.range
+  height: 3px
+  background: $yellow
+  border: 0 !important
+  .ui-slider-range
+    height: 3px
+    background: #343331
+  .ui-slider-handle
+    width: 18px
+    height: 18px
+    +border-radius(50%)
+    border: 3px solid #343331
+    background: #fff
+    top: -8px
+    &:nth-of-type(1)
+      margin-left: -2px
+    &:nth-of-type(2)
+      margin-left: -1.2em
+.checkbox_list
+  li
+    margin-bottom: 12px
+    &:last-child
+      margin-bottom: 0
+.checkbox
+  position: relative
+  input
+    position: absolute
+    opacity: 0
+    &:checked
+      + label
+        &:before
+          background: $yellow
+          border: 1px solid $yellow
+        &:after
+          opacity: 1
+    + label
+      font-weight: 300
+      font-size: 14px
+      position: relative
+      display: inline-block
+      padding-left: 30px
+      cursor: pointer
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 20px
+        height: 20px
+        background: #fff
+        border: 1px solid #E7E7E7
+        +border-radius(2px)
+
+      &:after
+        +b_a
+        left: 3px
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 14px
+        height: 10px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.5 4L6 8.5L13 1.5' stroke='white' stroke-width='2'/%3e%3c/svg%3e ")
+        opacity: 0
+
