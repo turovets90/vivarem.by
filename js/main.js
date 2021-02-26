@@ -18,7 +18,9 @@ $(document).ready(function(){
         }, 'xml');
     });
     /* end перевод картинки svg в код */
-
+    $('.search_toggler').click(function(){
+        $(this).toggleClass('act');
+    });
 
     $('.hamburger').click(function () {
         $('.main_menu').toggleClass('open');
@@ -119,6 +121,9 @@ $(document).ready(function(){
         $('header').next().css({'margin-top': header_height+'px'});
     });
     $(window).resize();
+
+
+
 
 });
 

@@ -192,21 +192,29 @@ header
   @media (max-width: 767px)
     height: auto
 
-  .contacts_box
+  .contacts_search
     padding: 5px 0
+    +flex
+    +ai-center
     @media (min-width: 1025px)
-      +flex
-      +ai-center
-      +j-end
+      +j-beetween
       border-bottom: 1px solid rgba(255, 255, 255, 0.15)
     @media (max-width: 1024px)
       margin-right: 20px
+    @media (max-width: 575px)
+      margin-right: 10px
 
+    .search_box
+      margin-left: 20px
+      @media (max-width: 575px)
+        margin-left: 10px
     ul
       +flex
       +ai-center
       +j-end
       +wrap
+      @media (max-width: 1200px)
+        line-height: 1.2
       li
         @media (max-width: 1024px)
           width: 100%
@@ -218,11 +226,14 @@ header
           font-size: 14px
           font-weight: 600
 
-          margin-left: 60px
+          margin-left: 37px
           @media (max-width: 1024px)
             margin-left: 0
-          @media (max-width: 575px)
+          @media (max-width: 767px)
             font-size: 12px
+
+          @media (max-width: 375px)
+            font-size: 10px
           &:hover
             color: $yellow
             text-decoration: none
@@ -287,6 +298,7 @@ header
 .mm_btn
   width: 40px
   height: 30px
+  +flex
   @media (max-width: 575px)
     width: 30px
     height: 23px
@@ -1640,3 +1652,93 @@ footer
     z-index: 1
   header
     //z-index: initial
+
+
+
+.search_box
+  position: relative
+  @media (min-width: 576px)
+    width: 100%
+    max-width: 280px
+  .search_toggler
+    @media (min-width: 576px)
+      display: none
+    &.act
+      &:before, &:after
+        +b_a
+        +m_a
+        width: 20px
+        height: 2px
+        background: #333
+      &:before
+        +transform(rotate(45deg))
+
+      &:after
+        +transform(rotate(-45deg))
+      + .search_form
+        +flex
+  .search_form
+    +flex
+    +ai-center
+    background: #fff
+    +border-radius(2px)
+    overflow: hidden
+    @media (max-width: 575px)
+      display: none
+      position: absolute
+      top: calc(100% + 15px)
+      right: 0
+      z-index: 2
+      width: 280px
+      +box-shadow(3px 4px 35px rgb(0 0 0 / 17%))
+
+    input
+      height: 30px
+      border: 0
+      background: #fff
+      width: calc(100% - 30px)
+      padding: 0 15px
+
+      &::-webkit-input-placeholder
+        color: #939291
+        font-size: 12px
+      &::-moz-placeholder
+        color: #939291
+        font-size: 12px
+      &::-ms-input-placeholder
+        color: #939291
+        font-size: 12px
+      &:-moz-placeholder
+        color: #939291
+        font-size: 12px
+      &:-ms-input-placeholder
+        color: #939291
+        font-size: 12px
+.search_btn, .search_toggler
+  position: relative
+  background: linear-gradient(180deg, #FEDD00 0%, #FFC907 62.5%, #FCE208 100%)
+  width: 30px
+  height: 30px
+  +border-radius(2px)
+  border: 0
+  &:before
+    +b_a
+    +m_a
+    width: 14px
+    height: 16px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='16' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.1 6.31579C12.1 9.28263 9.61736 11.7316 6.5 11.7316C3.38264 11.7316 0.9 9.28263 0.9 6.31579C0.9 3.34895 3.38264 0.9 6.5 0.9C9.61736 0.9 12.1 3.34895 12.1 6.31579Z' stroke='%232C2C2C' stroke-width='1.8'/%3e%3cpath d='M9.75 11.0527L13 15.0001' stroke='%232C2C2C' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+.email
+  display: inline-block
+  position: relative
+  padding-left: 26px
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 16px
+    height: 11px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='11' viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.431641 0.259534C0.619288 0.105624 0.816319 0.0211249 1.04775 0.00905352C1.12594 0.00301784 1.20412 0 1.28231 0C5.7796 0 10.2738 0 14.7711 0C15.0119 0 15.2433 0.0241427 15.4779 0.162963C12.9884 2.47161 10.5083 4.77724 8.01887 7.08891C5.48875 4.81044 2.96801 2.54102 0.431641 0.259534Z' fill='white'/%3e%3cpath d='M0.78833 10.9095C2.41461 9.39759 4.04089 7.88566 5.67968 6.36165C5.89861 6.55479 6.11127 6.74491 6.32081 6.93504C6.77429 7.34244 7.22465 7.74985 7.68126 8.15424C7.87203 8.32324 8.17227 8.32626 8.36305 8.15424C8.89784 7.66837 9.42326 7.17345 9.9518 6.68456C10.0894 6.55781 10.2301 6.43106 10.3834 6.29224C12.0722 7.81323 13.7579 9.3312 15.4436 10.8522C15.2341 10.988 15.0058 11.0001 14.7743 11.0001C11.747 11.0001 8.71958 11.0001 5.69219 11.0001C4.22228 11.0001 2.75238 11.0001 1.28247 10.997C1.11984 10.997 0.957213 10.9699 0.794585 10.9578C0.794585 10.9427 0.791458 10.9276 0.78833 10.9095Z' fill='white'/%3e%3cpath d='M0 1.27051C1.6513 2.75529 3.27133 4.20988 4.90386 5.67354C3.29009 7.1734 1.68257 8.66723 0.0469119 10.1852C0.0281472 10.0554 0.00312746 9.95887 0.00312746 9.85928C0 7.05872 0 4.25817 0 1.45761C0 1.40933 0 1.36104 0 1.27051Z' fill='white'/%3e%3cpath d='M11.1274 5.59496C12.7475 4.08604 14.3675 2.58316 16 1.06519C16 4.04681 16 6.99826 16 9.98894C14.3706 8.51623 12.7537 7.05862 11.1274 5.59496Z' fill='white'/%3e%3c/svg%3e ")
